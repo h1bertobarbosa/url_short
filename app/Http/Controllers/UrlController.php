@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Url;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class UrlController extends Controller
 {
@@ -21,15 +23,26 @@ class UrlController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        return \response()->json([
-            'id' => 1,
-            'original_url' => 'http',
-            'short_url' => 'dd'
-        ], 201);
+        $data = $request->all();
+
+        $validator = Validator::make($data, [
+            'url' => 'required|active_url',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
+        $createdUrl = Url::create([
+            'original_url' => $data['url'],
+            'url_code' => Str::random(16)
+        ]);
+
+        return response()->json($createdUrl, 201);
     }
 
     /**
