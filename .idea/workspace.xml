@@ -4,13 +4,7 @@
     <list default="true" id="c5e78dbc-18f5-470a-b4c1-f25444f335b9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UrlController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UrlController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Url.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Url.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_19_040107_create_urls_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_19_040107_create_urls_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/UrlTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CreateUrlTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +173,7 @@
       <workItem from="1597890300131" duration="7579000" />
       <workItem from="1597898573391" duration="628000" />
       <workItem from="1597926466575" duration="23000" />
-      <workItem from="1597947575171" duration="6035000" />
+      <workItem from="1597947575171" duration="8151000" />
     </task>
     <servers />
   </component>
@@ -191,10 +185,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2566" y="72" width="608" height="932" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.208.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597891460649" />
-    <state x="2613" y="298" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597952512157">
+    <state x="2613" y="298" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597954545459">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2613" y="298" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.208.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597952512157" />
+    <state x="2613" y="298" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.208.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597954545459" />
     <state x="2663" y="298" width="424" height="482" key="FileChooserDialogImpl" timestamp="1597897879661">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>

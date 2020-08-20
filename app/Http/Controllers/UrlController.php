@@ -51,12 +51,18 @@ class UrlController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Url  $url
-     * @return \Illuminate\Http\Response
+     * @param string or int $codeOrId
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show(Url $url)
+    public function show($codeOrId)
     {
-        //
+        $url = Url::where('id', $codeOrId)->orWhere('url_code', $codeOrId)->first();
+
+        if(!$url) {
+            return response()->json(['error' => 'Data does not exist.'], 400);
+        }
+
+        return response()->json($url);
     }
 
     /**
@@ -89,7 +95,7 @@ class UrlController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  string or int  $codeOrId
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Request $request, $codeOrId)
     {
