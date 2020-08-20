@@ -27,10 +27,11 @@ class UrlController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->only(['url']);
+        $currentUser = $request->request->get('user');
 
         $validator = Validator::make($data, [
-            'url' => 'required|active_url',
+            'url' => 'required|active_url'
         ]);
 
         if ($validator->fails()) {
@@ -38,8 +39,10 @@ class UrlController extends Controller
         }
 
         $createdUrl = Url::create([
+            'user_name' => $currentUser,
             'original_url' => $data['url'],
-            'url_code' => Str::random(16)
+            'url_code' => Str::random(16),
+            'clicks' => 0
         ]);
 
         return response()->json($createdUrl, 201);
@@ -60,22 +63,48 @@ class UrlController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Url  $url
-     * @return \Illuminate\Http\Response
+     * @param  string or int $codeOrId
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Url $url)
+    public function update(Request $request, $codeOrId)
     {
-        //
+        $url = Url::where('id', $codeOrId)->orWhere('url_code', $codeOrId)->first();
+
+        if(!$url) {
+            return response()->json(['error' => 'Data does not exist.'], 400);
+        }
+
+        $currentUser = $request->request->get('user');
+
+        if($url->user_name != $currentUser) {
+            return response()->json(['error' => 'You not is owner from this data'], 401);
+        }
+
+        $url->fill($request->only(['original_url', 'url_code']));
+        $url->save();
+        return response()->json($url);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Url  $url
+     * @param  string or int  $codeOrId
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Url $url)
+    public function destroy(Request $request, $codeOrId)
     {
-        //
+        $url = Url::where('id', $codeOrId)->orWhere('url_code', $codeOrId)->first();
+        $currentUser = $request->request->get('user');
+
+        if(!$url) {
+            return response()->json(['error' => 'Data does not exist.'], 400);
+        }
+
+        if($url->user_name != $currentUser) {
+            return response()->json(['error' => 'You not is owner from this data'], 401);
+        }
+
+        $url->delete();
+        return response('', 204);
     }
 }

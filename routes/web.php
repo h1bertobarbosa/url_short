@@ -12,5 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::resource('urls', 'UrlController');
 
-Route::post('/urls', 'UrlController@store');
+Route::middleware(['user.check'])->group(function () {
+    Route::get('urls', 'UrlController@index');
+    Route::post('urls', 'UrlController@store');
+    Route::put('urls/{codeOrId}', 'UrlController@update');
+    Route::delete('urls/{codeOrId}', 'UrlController@destroy');
+});
+
+
+
