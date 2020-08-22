@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5e78dbc-18f5-470a-b4c1-f25444f335b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Services/UrlDestroyService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Services/UrlIndexService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Services/UrlShowService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Services/UrlStoreService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Services/UrlUpdateService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UrlController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UrlController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/CreateUrlTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CreateUrlTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/UpdateUrlTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/UpdateUrlTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +175,7 @@
       <workItem from="1597926466575" duration="23000" />
       <workItem from="1597947575171" duration="8218000" />
       <workItem from="1598012795136" duration="79000" />
-      <workItem from="1598056305209" duration="11421000" />
+      <workItem from="1598056305209" duration="12592000" />
     </task>
     <servers />
   </component>
