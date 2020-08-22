@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5e78dbc-18f5-470a-b4c1-f25444f335b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Services/UrlDestroyService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Services/UrlIndexService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Services/UrlShowService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Services/UrlStoreService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Services/UrlUpdateService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UrlController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UrlController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/CreateUrlTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CreateUrlTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ShowUrlTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ShowUrlTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/UpdateUrlTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/UpdateUrlTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,7 +182,7 @@
       <workItem from="1597926466575" duration="23000" />
       <workItem from="1597947575171" duration="8218000" />
       <workItem from="1598012795136" duration="79000" />
-      <workItem from="1598056305209" duration="4984000" />
+      <workItem from="1598056305209" duration="11421000" />
     </task>
     <servers />
   </component>
@@ -190,14 +194,22 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2566" y="72" width="608" height="932" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.208.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597891460649" />
-    <state x="2613" y="298" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598058690881">
+    <state x="2613" y="298" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598067807267">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2613" y="298" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.208.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1598058690881" />
+    <state x="2613" y="298" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.208.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1598067807267" />
     <state x="2663" y="298" width="424" height="482" key="FileChooserDialogImpl" timestamp="1597897879661">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2663" y="298" width="424" height="482" key="FileChooserDialogImpl/0.208.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597897879661" />
+    <state x="2530" y="234" width="690" height="609" key="NewPhpClassDialog" timestamp="1598067653119">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2530" y="234" width="690" height="609" key="NewPhpClassDialog/0.208.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1598067653119" />
+    <state x="2676" y="460" width="398" height="158" key="NewPhpFileDialog" timestamp="1598067617650">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2676" y="460" width="398" height="158" key="NewPhpFileDialog/0.208.1920.1052/1920.0.1920.1080@1920.0.1920.1080" timestamp="1598067617650" />
     <state x="2361" y="175" key="SettingsEditor" timestamp="1597806969765">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>

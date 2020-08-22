@@ -52,7 +52,7 @@ class CreateUrlTest extends TestCase
         $response
             ->assertStatus(400)
             ->assertJson([
-                "url" => ["The url field is required."]
+                "error" => "The url field is required."
             ]);
     }
 
@@ -65,7 +65,7 @@ class CreateUrlTest extends TestCase
         $response
             ->assertStatus(400)
             ->assertJson([
-                "url" => ["The url is not a valid URL."]
+                "error" => "The url is not a valid URL."
             ]);
     }
 

@@ -108,7 +108,7 @@ class UpdateUrlTest extends TestCase
         $response
             ->assertStatus(400)
             ->assertJson([
-                'url_code' => 'This code must have a maximum of 16 characters'
+                'error' => 'This code must have a maximum of 16 characters'
             ]);
     }
 
@@ -129,7 +129,7 @@ class UpdateUrlTest extends TestCase
         $response
             ->assertStatus(400)
             ->assertJson([
-                'url_code' => 'This code already exists in another record'
+                'error' => 'This code already exists in another record'
             ]);
     }
 }
