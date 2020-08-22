@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Url;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -37,10 +38,8 @@ class CreateUrlTest extends TestCase
             ->assertStatus(201)
             ->assertJsonStructure([
                 'id',
-                'user_name',
                 'original_url',
-                'url_code',
-                'clicks'
+                'minified_url'
             ]);
     }
 
@@ -77,7 +76,9 @@ class CreateUrlTest extends TestCase
         ])->postJson('/urls', ['url' => 'https://rhizom.me/']);
         $data = $response->decodeResponseJson();
         $expectedNumberOfCaracter = 16;
-        $this->assertEquals($expectedNumberOfCaracter, strlen($data['url_code']));
+
+        $url = Url::find($data['id']);
+        $this->assertEquals($expectedNumberOfCaracter, strlen($url->url_code));
     }
 
 }

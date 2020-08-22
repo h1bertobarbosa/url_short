@@ -92,4 +92,44 @@ class UpdateUrlTest extends TestCase
                 'error' => 'Data does not exist.'
             ]);
     }
+
+    public function testSholdNotBeAbleUpdateIfUrlCodeGreaterThan16Characters()
+    {
+        $url = factory(Url::class)->make();
+        $url->save();
+
+        $urlCodeWith19Caracters = 'code123456789123456';
+        $response = $this->withHeaders([
+            'User-Header' => $url->user_name,
+        ])->putJson("/urls/{$url->id}", [
+            'url_code' => $urlCodeWith19Caracters
+        ]);
+
+        $response
+            ->assertStatus(400)
+            ->assertJson([
+                'url_code' => 'This code must have a maximum of 16 characters'
+            ]);
+    }
+
+    public function testSholdNotBeAbleUpdateIfUrlCodeIsNotBeUnique()
+    {
+        $url = factory(Url::class)->make();
+        $urlUnique = factory(Url::class)->make();
+        $url->save();
+        $urlUnique->save();
+
+
+        $response = $this->withHeaders([
+            'User-Header' => $url->user_name,
+        ])->putJson("/urls/{$url->id}", [
+            'url_code' => $urlUnique->url_code
+        ]);
+
+        $response
+            ->assertStatus(400)
+            ->assertJson([
+                'url_code' => 'This code already exists in another record'
+            ]);
+    }
 }

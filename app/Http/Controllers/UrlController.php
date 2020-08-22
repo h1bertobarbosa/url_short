@@ -9,22 +9,19 @@ use Illuminate\Support\Str;
 
 class UrlController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index($code)
     {
-        //
+        $url = Url::where('url_code', $code)->first();
+
+        if(!$url) {
+            return response()->json(['error' => 'Data does not exist.'], 400);
+        }
+
+        $url->increment('clicks');
+
+        return response()->redirectTo($url->original_url, 301);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function store(Request $request)
     {
         $data = $request->only(['url']);
@@ -45,16 +42,13 @@ class UrlController extends Controller
             'clicks' => 0
         ]);
 
-        return response()->json($createdUrl, 201);
+        return response()->json([
+            'id' => $createdUrl->id,
+            'original_url' => $createdUrl->original_url,
+            'minified_url' => $request->getHost().'/'.$createdUrl->url_code], 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param string or int $codeOrId
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function show($codeOrId)
+    public function show(Request $request, $codeOrId)
     {
         $url = Url::where('id', $codeOrId)->orWhere('url_code', $codeOrId)->first();
 
@@ -62,41 +56,42 @@ class UrlController extends Controller
             return response()->json(['error' => 'Data does not exist.'], 400);
         }
 
-        return response()->json($url);
+        $responseData = array_merge(['minified_url' => $request->getHost().'/'.$url->url_code], $url->toArray());
+
+        return response()->json($responseData);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  string or int $codeOrId
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function update(Request $request, $codeOrId)
     {
+        $currentUser = $request->request->get('user');
+        $data = $request->only(['original_url', 'url_code']);
+
+        if(!empty($data['url_code']) && strlen($data['url_code']) > 16) {
+            return response()->json(['url_code' => 'This code must have a maximum of 16 characters'], 400);
+        }
+
         $url = Url::where('id', $codeOrId)->orWhere('url_code', $codeOrId)->first();
 
         if(!$url) {
             return response()->json(['error' => 'Data does not exist.'], 400);
         }
-
-        $currentUser = $request->request->get('user');
 
         if($url->user_name != $currentUser) {
             return response()->json(['error' => 'You not is owner from this data'], 401);
         }
 
-        $url->fill($request->only(['original_url', 'url_code']));
+        if(!empty($data['url_code'])) {
+            $urlExists = Url::where('url_code', $data['url_code'])->where('id', '!=', $url->id)->first();
+            if($urlExists) {
+                return response()->json(['url_code' => 'This code already exists in another record'], 400);
+            }
+        }
+
+        $url->fill($data);
         $url->save();
         return response()->json($url);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  string or int  $codeOrId
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function destroy(Request $request, $codeOrId)
     {
         $url = Url::where('id', $codeOrId)->orWhere('url_code', $codeOrId)->first();

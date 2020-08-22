@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 //Route::resource('urls', 'UrlController');
 
 Route::get('urls/{codeOrId}', 'UrlController@show');
+Route::get('/{code}', 'UrlController@index');
 
 Route::middleware(['user.check'])->group(function () {
     Route::post('urls', 'UrlController@store');

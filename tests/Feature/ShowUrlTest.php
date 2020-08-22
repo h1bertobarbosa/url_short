@@ -36,7 +36,8 @@ class ShowUrlTest extends TestCase
                 'user_name',
                 'original_url',
                 'url_code',
-                'clicks'
+                'clicks',
+                'minified_url'
             ]);
     }
 }
